@@ -6,6 +6,6 @@ import (
 )
 
 func Serve() {
-	http.HandleFunc("/graphql", func(w http.ResponseWriter, r *http.Request) {})
+	http.HandleFunc("/graphql", graphqlRoute)
 	log.Fatal(http.ListenAndServe(":8000", nil))
 }
