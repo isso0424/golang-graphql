@@ -2,6 +2,7 @@ package types
 
 import (
 	"isso0424/golang-graphql/types/hello"
+	"isso0424/golang-graphql/types/hoge"
 	"log"
 
 	"github.com/graphql-go/graphql"
@@ -15,6 +16,7 @@ func CreateSchema() graphql.Schema {
 					Name: "RootQuery",
 					Fields: graphql.Fields{
 						"hello": hello.Hello,
+						"hoge": hoge.Hoge,
 					},
 				},
 			),
