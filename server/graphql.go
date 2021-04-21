@@ -13,12 +13,17 @@ import (
 var schema = types.CreateSchema()
 
 func graphqlRoute(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "POST" {
+		w.Write([]byte("You can use only `POST` method."))
+		return
+	}
 	data, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		log.Println(err)
 
 		return
 	}
+	log.Printf("data: %v", string(data));
 	result := graphql.Do(
 		graphql.Params{
 			Schema: schema,
